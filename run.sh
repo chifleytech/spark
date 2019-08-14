@@ -35,7 +35,7 @@ fi
 
 if [ -f /root/create_tables.sql ]; then
     echo "creating tables"
-    beeline -u jdbc:hive2://master:10000 -f /root/create_tables.sql
+    beeline -u jdbc:hive2://master.spark:10000 -f /root/create_tables.sql
 fi
 
 date
