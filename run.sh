@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+cp -f /root/existing-udfs/* /udf
+
 cd $SPARK_HOME
 ./sbin/start-master.sh
 ./sbin/start-history-server.sh

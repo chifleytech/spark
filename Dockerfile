@@ -84,6 +84,8 @@ COPY spark-env.sh $SPARK_HOME/conf/spark-env.sh
 
 ENV SPARK_DIST_CLASSPATH $SPARK_DIST_CLASSPATH:/udf/*
 WORKDIR $SPARK_HOME
+RUN mkdir /root/existing-udfs
+
 #RUN bin/run-example SparkPi 10
 CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]
 
