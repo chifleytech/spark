@@ -1,7 +1,6 @@
-
 # spark
 
-A `debian:stretch` based [Spark](http://spark.apache.org) container. Use it in a standalone cluster with the accompanying `docker-compose.yml`, or as a base for more complex recipes.
+A `debian:stretclch` based [Spark](http://spark.apache.org) container. Use it in a standalone cluster with the accompanying `docker-compose.yml`, or as a base for more complex recipes.
 
 ## docker example
 
@@ -37,3 +36,10 @@ To run `SparkPi`, exec into a container:
 ## license
 
 MIT
+
+
+## Compose
+
+docker build . -t chifleytech/spark1
+docker-compose --file master.yml up 
+docker-compose --file worker.yml up 

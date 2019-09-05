@@ -1,0 +1,54 @@
+version: "3.3"
+services:
+  master:
+    image: chifleytech/spark1
+    command: run.sh
+    hostname: master
+    environment:
+      HOSTNAME: master
+      MASTER: spark://master:7077
+      SPARK_CONF_DIR: /conf
+      SPARK_PUBLIC_DNS: localhost
+    expose:
+      - 22
+      - 7001
+      - 7002
+      - 7003
+      - 7004
+      - 7005
+      - 7077
+      - 6066
+      - 9864
+      - 9865
+      - 9866
+      - 9867
+      - 8111
+      - 50071
+      - 50072
+      - 8888
+      - 8480
+      - 8481
+      - 8485
+      - 50100
+      - 50200
+      - 9870
+      - 9871
+      - 9868
+      - 9869
+      - 9000
+    ports:
+      - 22:22
+      - 4040:4040
+      - 6066:6066
+      - 7077:7077
+      - 8080:8080
+      - 10000:10000
+      - 18080:18080
+      - 9870:9870
+      - 9868:9868
+      - 9864:9864
+      - 9000:9000
+networks:
+  default:
+    external:
+      name: app_default

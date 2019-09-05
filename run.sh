@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 cp -f /root/existing-udfs/* /udf
 
+echo "USING HOSTNAME : " $HOSTNAME
+
+sed -i 's/localhost/'"$HOSTNAME"'/g' $HADOOP_CONF_DIR/core-site.xml
+
 cd $SPARK_HOME
 ./sbin/start-master.sh
 ./sbin/start-history-server.sh
@@ -37,7 +41,7 @@ fi
 
 if [ -f /root/create_tables.sql ]; then
     echo "creating tables"
-    beeline -u jdbc:hive2://master:10000 -f /root/create_tables.sql
+    beeline -u jdbc:hive2://$HOSTNAME:10000 -f /root/create_tables.sql
 fi
 
 date
