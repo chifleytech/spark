@@ -39,9 +39,16 @@ MIT
 
 
 ## Compose
+cd /Users/michaelwalker/spark-2.4.3-bin-hadoop2.7/bin
+./beeline -u jdbc:hive2://master.sqlcd:10000 
+SELECT unix_timestamp();
+CREATE TABLE CUSTOMERS ( ID INT, NAME VARCHAR (20), AGE BIGINT, ADDRESS CHAR (25), SALARY DECIMAL (18, 2)) STORED AS TEXTFILE LOCATION 'hdfs://master.sqlcd:9000/customers';
+INSERT INTO CUSTOMERS VALUES (3, 'kaushik', 15, 'Kota', 2000.00 );
+CREATE TABLE AGE STORED AS TEXTFILE LOCATION 'hdfs://master.sqlcd:9000/customers_2' AS SELECT AGE *2 FROM CUSTOMERS;
+SELECT * FROM AGE ;
+ 
 
-beeline -u jdbc:hive2://spark.sqlcd:10000 
-SELECT unix_timestamp()
+
 
 docker build . -t chifleytech/spark1
 docker-compose --file master.yml up 

@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 cp -f /root/existing-udfs/* /udf
 
-echo "USING HOSTNAME : " $HOSTNAME
-sleep 120s
+echo "WAITING FOR HOSTNAME : " $HOSTNAME
+sleep $DNS_WAIT
+echo "RESUMED"
+
 sed -i 's/localhost/'"$HOSTNAME"'/g' $HADOOP_CONF_DIR/core-site.xml
 
 cd $SPARK_HOME

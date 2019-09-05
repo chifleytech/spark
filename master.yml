@@ -1,14 +1,15 @@
 version: "3.3"
 services:
-  master:
+  master.sqlcd:
     image: chifleytech/spark1
     command: run.sh
-    hostname: master
+    hostname: master.sqlcd
     environment:
-      HOSTNAME: master
-      MASTER: spark://master:7077
+      DNS_WAIT: 5s
+      MASTER: spark://master.sqlcd:7077
+      HOSTNAME: master.sqlcd
       SPARK_CONF_DIR: /conf
-      SPARK_PUBLIC_DNS: localhost
+      SPARK_PUBLIC_DNS: master.sqlcd
     expose:
       - 22
       - 7001
