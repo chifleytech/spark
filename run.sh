@@ -2,7 +2,7 @@
 cp -f /root/existing-udfs/* /udf
 
 echo "USING HOSTNAME : " $HOSTNAME
-
+sleep 120s
 sed -i 's/localhost/'"$HOSTNAME"'/g' $HADOOP_CONF_DIR/core-site.xml
 
 cd $SPARK_HOME
