@@ -1,9 +1,9 @@
 version: "3.3"
 services:
-  worker.sqlcd:
+  worker.spark:
     image: chifleytech/spark1
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master.sqlcd:7077
-    hostname: worker.sqlcd
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master.spark:7077
+    hostname: worker.spark
     environment:
       SPARK_CONF_DIR: /conf
       SPARK_WORKER_CORES: 2
