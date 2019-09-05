@@ -40,6 +40,9 @@ MIT
 
 ## Compose
 
+beeline -u jdbc:hive2://spark.sqlcd:10000 
+SELECT unix_timestamp()
+
 docker build . -t chifleytech/spark1
 docker-compose --file master.yml up 
 docker-compose --file worker.yml up 
