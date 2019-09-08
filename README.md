@@ -37,17 +37,3 @@ To run `SparkPi`, exec into a container:
 
 MIT
 
-
-## Compose
-cd $SPARK_HOME/bin
-./beeline -u jdbc:hive2://master.spark:10000 
-SELECT unix_timestamp();
-CREATE TABLE CUSTOMERS ( ID INT, NAME VARCHAR (20), AGE BIGINT, ADDRESS CHAR (25), SALARY DECIMAL (18, 2)) STORED AS TEXTFILE LOCATION 'hdfs://master.sqlcd:9000/customers';
-INSERT INTO CUSTOMERS VALUES (3, 'kaushik', 15, 'Kota', 2000.00 );
-SELECT sum(AGE) FROM CUSTOMERS;
-SELECT * FROM AGE ;
-
-
-docker build . -t chifleytech/spark1
-docker-compose --file master.yml up 
-docker-compose --file worker.yml up 

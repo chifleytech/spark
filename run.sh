@@ -36,13 +36,15 @@ if [ "$(ls -A /root/upload-data)" ]; then
    hdfs dfs -mkdir /experiments/
    cd /root/upload-data
    for f in *.sh; do
+        sed -i 's/localhost/'"$HOSTNAME"'/g' $f
         echo "$f"
         bash "$f" -H
    done
 fi
 
 if [ -f /root/create_tables.sql ]; then
-    echo "creating tables"
+    echo "creating tables..."
+    sed -i 's/localhost/'"$HOSTNAME"'/g' /root/create_tables.sql
     beeline -u jdbc:hive2://$HOSTNAME:10000 -f /root/create_tables.sql
 fi
 
