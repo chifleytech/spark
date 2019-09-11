@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cp -f /root/existing-udfs/* /udf
+/root/copy-udfs.sh
 
 echo "WAITING FOR HOSTNAME : " $HOSTNAME
 sleep $DNS_WAIT

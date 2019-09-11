@@ -76,8 +76,10 @@ COPY hadoop-env.sh $HADOOP_CONF_DIR/hadoop-env.sh
 #ADD spark-defaults.conf /conf/spark-defaults.conf
 
 # add init script
-COPY run.sh /root/run.sh
-RUN chmod 555 /root/run.sh
+COPY master.sh /root/master.sh
+COPY worker.sh /root/worker.sh
+COPY copy-udfs.sh /root/copy-udfs.sh
+RUN chmod 755 /root/*.sh
 ENV PATH $PATH:/root
 
 #todo: Set HDFS permissions https://hadoop.apache.org/docs/r3.0.3/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html
