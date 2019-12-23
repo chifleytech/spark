@@ -47,7 +47,7 @@ if [ -f /root/create_tables.sql ]; then
     sed -i 's/localhost/'"$HOSTNAME"'/g' /root/create_tables.sql
     beeline -u jdbc:hive2://$HOSTNAME:10000 -f /root/create_tables.sql
 fi
-
+touch /tmp/data/restore_complete
 date
 trap : TERM INT
 tail -f /dev/null & wait
