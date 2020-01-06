@@ -1,5 +1,5 @@
 printf "Waiting for Spark to initialize..."
-while [ ! -f /tmp/data/restore_complete ]
+while [ ! -f /tmp/hadoop-root/restore_complete ]
 do
   sleep 3
   printf "."
