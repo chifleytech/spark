@@ -42,7 +42,7 @@ ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH $PATH:$HADOOP_HOME/bin
 # "http://archive.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz" \
 # "http://apache.mirror.cdnetworks.com/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz" \
-RUN curl -L --retry 3 \
+RUN curl -sL --retry 3 \
   "http://apache.mirror.cdnetworks.com/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz" \
   | gunzip \
   | tar -x -C /usr/ \
@@ -57,7 +57,7 @@ ENV SPARK_DIST_CLASSPATH="$HADOOP_HOME/etc/hadoop/*:$HADOOP_HOME/share/hadoop/co
 ENV PATH $PATH:${SPARK_HOME}/bin
 # "https://archive.apache.org/dist/spark/spark-${SPARK_VERSION}/${SPARK_PACKAGE}.tgz" \
 # "http://apache.mirror.cdnetworks.com/spark/spark-${SPARK_VERSION}/${SPARK_PACKAGE}.tgz" \
-RUN curl -L --retry 3 \
+RUN curl -sL --retry 3 \
   "http://apache.mirror.cdnetworks.com/spark/spark-${SPARK_VERSION}/${SPARK_PACKAGE}.tgz" \
   | gunzip \
   | tar x -C /usr/ \
